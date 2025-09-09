@@ -421,3 +421,104 @@ Track Claude's effectiveness:
 - **Consistency Scores**: Measure style guide adherence
 
 This integration approach ensures Claude becomes an integral part of your professional EPUB production workflow, maintaining quality and consistency while accelerating development.
+
+## Complete Agent Execution System
+
+### 1. **Specific Agent Prompts**
+Each agent has detailed system prompts defining their role:
+
+```python
+CHAPTER_AGENT_SYSTEM_PROMPT = """
+You are a specialized EPUB Chapter Generation Agent for the ACISS hairstyling certification book.
+Generate professional XHTML chapters following the exact 6-page structure...
+"""
+
+VALIDATION_AGENT_PROMPT = """
+You are an EPUB Validation Agent specializing in professional publishing standards.
+Validation Areas: XHTML 1.1 compliance, CSS validity, accessibility...
+"""
+```
+
+### 2. **Initialization Commands**
+```bash
+# Setup complete agent environment in existing repository
+make setup
+make install
+
+# Verify system ready
+make health
+
+# Run demo mode (no API key required)
+make demo
+```
+
+### 3. **Execution Commands**
+```bash
+# Generate single chapter
+python scripts/epub_agents.py generate-chapter \
+  --chapter-number "XIII" \
+  --data-file "data/chapters/chapter-xiii.yaml" \
+  --output "OEBPS/text/23-Chapter-XIII.xhtml"
+
+# Run complete validation workflow
+python scripts/epub_agents.py validate --directory OEBPS/text
+
+# Batch generate chapters
+make generate
+```
+
+### 4. **Interactive Agent Commands**
+```bash
+# Chat with specific agent
+python scripts/epub_agents.py chat --agent chapter
+
+# Chat with validation agent
+python scripts/epub_agents.py chat --agent validation
+
+# Custom content generation
+python scripts/epub_agents.py chat --agent content
+```
+
+### 5. **Complete Ready-to-Run System**
+The repository now includes a complete executable system:
+
+```bash
+# Quick start commands
+make setup      # Initialize environment
+make health     # Check system status
+make demo       # Run without API key
+make generate   # Generate all chapters
+make validate   # Quality assurance
+
+# Specific chapter generation
+make chapter-xiii
+make chapter-xiv
+
+# Interactive sessions
+make chat-chapter
+make chat-validation
+```
+
+### 6. **Configuration and Data Files**
+Ready-to-use configuration and sample data:
+
+- **`config/agents.yaml`**: Complete agent configuration
+- **`config/chapters.yaml`**: Batch processing configuration  
+- **`data/chapters/chapter-xiii.yaml`**: Sample chapter data
+- **`data/chapters/chapter-xiv.yaml`**: Sample chapter data
+- **`Makefile`**: Convenient command shortcuts
+- **`README.md`**: Complete usage documentation
+
+### 7. **System Validation and Health Checks**
+```bash
+# Complete system health check
+make health
+
+# Validate generated content
+make validate
+
+# Clean and reset
+make clean
+```
+
+The system is now complete with executable commands, configuration files, sample data, and comprehensive documentation. Users can immediately start generating professional EPUB content using the AI agent system.

@@ -1,0 +1,42 @@
+agents:
+  chapter:
+    model: "claude-3-sonnet-20240229"
+    max_tokens: 6000
+    temperature: 0.3
+    system_prompt: "specialized chapter generation with ACISS design system"
+  validation:
+    model: "claude-3-sonnet-20240229"
+    max_tokens: 2000
+    temperature: 0.1
+    system_prompt: "EPUB validation and quality assurance"
+  content:
+    model: "claude-3-sonnet-20240229"
+    max_tokens: 3000
+    temperature: 0.2
+    system_prompt: "professional hairstyling content generation"
+  formatter:
+    model: "claude-3-sonnet-20240229"
+    max_tokens: 4000
+    temperature: 0.2
+    system_prompt: "professional formatting and layout"
+
+project:
+  name: "ACISS Hairstyling Certification Book"
+  output_directory: "OEBPS/text"
+  validation_enabled: true
+  max_workers: 4
+  backup_enabled: true
+
+workflows:
+  chapter_production:
+    agents: [chapter, formatter, validation]
+    parallel: true
+    timeout: 300
+  quality_assurance:
+    agents: [validation]
+    parallel: false
+    timeout: 600
+  batch_generation:
+    agents: [chapter, content, formatter]
+    parallel: true
+    timeout: 900
