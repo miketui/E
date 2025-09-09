@@ -244,7 +244,14 @@ li { margin-bottom: 0.5em; line-height: 1.5; }
   letter-spacing: 0.08em; 
 }
 
+/* Chapter Title Stack - ACISS Design System */
 .chapter-title-stack { display: flex; align-items: flex-start; gap: 1.5rem; margin: 2rem 0; }
+.title-stack { display: flex; align-items: flex-start; gap: 1.5rem; margin: 2rem 0; }
+.title-bar { border-left: 4px solid var(--accent-color); padding-left: 1.5rem; }
+.title-lines { display: flex; flex-direction: column; gap: 0.25rem; }
+.title-line { font-size: 2rem; color: var(--accent-color); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.1; text-align: left; }
+
+/* Legacy classes for backward compatibility */
 .chapter-title-vertical { border-left: 4px solid var(--accent-color); padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.25rem; }
 .chapter-title-word { font-size: 2rem; color: var(--accent-color); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.1; text-align: left; }
 
@@ -652,7 +659,9 @@ tr:hover { background: rgba(23,151,166,0.02); }
   :root { --page-padding: 1rem; --font-size-4xl: 2rem; --font-size-3xl: 1.75rem; --font-size-2xl: 1.5rem; }
   body { padding: var(--page-padding); max-width: 100%; }
   .chapter-title-stack { flex-direction: column; gap: 1rem; }
+  .title-stack { flex-direction: column; gap: 1rem; }
   .chapter-title-word { font-size: 1.5rem; }
+  .title-line { font-size: 1.5rem; }
   .bible-quote-container { padding: 1rem; margin: 1rem auto; max-width: 95%; }
   figure.align-left, figure.align-right { float: none; margin: 1rem auto; max-width: 100%; }
 }
@@ -660,6 +669,7 @@ tr:hover { background: rgba(23,151,166,0.02); }
 @media screen and (max-width: 480px) {
   .title-main { font-size: 2rem; }
   .chapter-title-word { font-size: 1.25rem; }
+  .title-line { font-size: 1.25rem; }
   .dropcap { font-size: 2.5em; }
 }
 
